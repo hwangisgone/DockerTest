@@ -1,38 +1,19 @@
-# create-svelte
+## 1. [Install docker](https://www.digitalocean.com/community/tutorials/how-to-install-and-use-docker-on-ubuntu-20-04)
 
-Everything you need to build a Svelte project, powered by [`create-svelte`](https://github.com/sveltejs/kit/tree/main/packages/create-svelte).
-
-## Creating a project
-
-If you're seeing this, you've probably already done this step. Congrats!
-
-```bash
-# create a new project in the current directory
-npm create svelte@latest
-
-# create a new project in my-app
-npm create svelte@latest my-app
+## 2. Build the docker image 
+### At the directory with Dockerfile
+```
+sudo docker build -t landing-page . --no-cache
 ```
 
-## Developing
-
-Once you've created a project and installed dependencies with `npm install` (or `pnpm install` or `yarn`), start a development server:
-
-```bash
-npm run dev
-
-# or start the server and open the app in a new browser tab
-npm run dev -- --open
+## 3. Run the docker image
 ```
-
-## Building
-
-To create a production version of your app:
-
-```bash
-npm run build
+sudo docker run -p 5000:3000 landing-page
 ```
+You can then view the page that's running on docker at `localhost:5000`
 
-You can preview the production build with `npm run preview`.
-
-> To deploy your app, you may need to install an [adapter](https://kit.svelte.dev/docs/adapters) for your target environment.
+## 4. See all running docker images
+```
+sudo docker ps
+sudo docker stop <CONTAINER ID>
+```
